@@ -20,10 +20,12 @@ public class SessionController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
+        // setAttribute - записать
         session.setAttribute("sessionMassage", "I am session attribute");
         req.setAttribute("requestMassage", "I am request attribute");
 
-        req.getRequestDispatcher("/message").forward(req,resp);
+        // перенаправляем запрос туда, где мы ходим его видеть
+        req.getRequestDispatcher("/message").forward(req, resp);
     }
 
     // http://localhost:8080/handler
